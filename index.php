@@ -1,63 +1,6 @@
 <?php
 include_once "Stack.php";
-
-function isRightBrackets($str)
-{
-    $stack = new stack_homework\Stack();
-    for ($i = 0; $i < strlen($str); $i++) {
-        switch ($str[$i]) {
-            case '(':
-                $stack->push('(');
-                break;
-            case ')':
-                if ($stack->top() == '(') {
-                    $stack->pop();
-                    break;
-                } elseif ($stack->isEmpty()) {
-                    $stack->push(')');
-                    break;
-                } else {
-                    break;
-                }
-            case '[':
-                $stack->push('[');
-                break;
-            case ']':
-                if ($stack->top() == '[') {
-                    $stack->pop();
-                    break;
-                } elseif ($stack->isEmpty()) {
-                    $stack->push(']');
-                    break;
-                } else {
-                    break;
-                }
-            case '{':
-                $stack->push('{');
-                break;
-            case '}':
-                if ($stack->top() == '{') {
-                    $stack->pop();
-                    break;
-                } elseif ($stack->isEmpty()) {
-                    $stack->push('}');
-                    break;
-                } else {
-                    break;
-                }
-        }
-    }
-    return $stack->getStack();
-}
-
-function checkBrackets($str)
-{
-    if (isRightBrackets($str) == null) {
-        echo "<b>$str</b> là biểu thức đúng";
-    } else {
-        echo "<b>$str</b> là biểu thức sai";
-    }
-}
+include_once "Function.php";
 
 checkBrackets('8 * 2 / ( 9 - 2)');
 echo "<br>";
