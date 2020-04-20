@@ -3,36 +3,19 @@ function isRightBrackets($str)
 {
     $stack = new stack_homework\Stack();
     for ($i = 0; $i < strlen($str); $i++) {
-        switch ($str[$i]) {
+        $char = $str[$i];
+        switch ($char) {
             case '(':
-                $stack->push('(');
+            case '[':
+            case '{':
+                $stack->push($char);
                 break;
             case ')':
-                if ($stack->top() == '(') {
-                    $stack->pop();
-                    break;
-                } elseif ($stack->isEmpty()) {
-                    return false;
-                } else {
-                    return false;
-                }
-            case '[':
-                $stack->push('[');
-                break;
             case ']':
-                if ($stack->top() == '[') {
-                    $stack->pop();
-                    break;
-                } elseif ($stack->isEmpty()) {
-                    return false;
-                } else {
-                    return false;
-                }
-            case '{':
-                $stack->push('{');
-                break;
             case '}':
-                if ($stack->top() == '{') {
+                if ($stack->top() == '(' && $char == ')' ||
+                    $stack->top() == '[' && $char == ']' ||
+                    $stack->top() == '{' && $char == '}') {
                     $stack->pop();
                     break;
                 } elseif ($stack->isEmpty()) {
