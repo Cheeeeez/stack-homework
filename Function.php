@@ -12,10 +12,9 @@ function isRightBrackets($str)
                     $stack->pop();
                     break;
                 } elseif ($stack->isEmpty()) {
-                    $stack->push(')');
-                    break;
+                    return false;
                 } else {
-                    break;
+                    return false;
                 }
             case '[':
                 $stack->push('[');
@@ -25,10 +24,9 @@ function isRightBrackets($str)
                     $stack->pop();
                     break;
                 } elseif ($stack->isEmpty()) {
-                    $stack->push(']');
-                    break;
+                    return false;
                 } else {
-                    break;
+                    return false;
                 }
             case '{':
                 $stack->push('{');
@@ -38,10 +36,9 @@ function isRightBrackets($str)
                     $stack->pop();
                     break;
                 } elseif ($stack->isEmpty()) {
-                    $stack->push('}');
-                    break;
+                    return false;
                 } else {
-                    break;
+                    return false;
                 }
         }
     }
