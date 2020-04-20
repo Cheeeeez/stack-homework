@@ -45,12 +45,16 @@ function isRightBrackets($str)
                 }
         }
     }
-    return $stack->getStack();
+    if ($stack->getStack() == null) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function checkBrackets($str)
 {
-    if (isRightBrackets($str) == null) {
+    if (isRightBrackets($str)) {
         echo "<b>$str</b> là biểu thức đúng";
     } else {
         echo "<b>$str</b> là biểu thức sai";
